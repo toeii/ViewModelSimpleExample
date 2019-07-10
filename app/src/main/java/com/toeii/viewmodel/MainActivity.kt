@@ -12,13 +12,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val tvContent = findViewById<TextView>(R.id.tv_content)
-        val userModel = ViewModelProviders.of(this)[BaseModel::class.java]
-        if(userModel.userTag.isNotEmpty()){
-            tvContent.text = userModel.userTag
+        val baseModel = ViewModelProviders.of(this)[BaseModel::class.java]
+        if(baseModel.userTag.isNotEmpty()){
+            tvContent.text = baseModel.userTag
         }
         tvContent.setOnClickListener {
-            userModel.userTag = "Hello BaseModel"
-            tvContent.text = userModel.userTag
+            baseModel.userTag = "Hello BaseModel"
+            tvContent.text = baseModel.userTag
         }
     }
 }
